@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 
 	std::vector<std::string> output = second_pass(table, labels, commands);
 
-    print_output(output, offset);
+    print_output(labels, output, offset);
 
     return 0;
 }

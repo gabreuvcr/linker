@@ -4,6 +4,10 @@ void replace_tabs_to_spaces(std::string &in) {
     std::replace(std::begin(in), std::end(in), '\t', ' ');
 }
 
+bool is_const_num(std::string &str) {
+    return std::all_of(std::begin(str), std::end(str), ::isdigit);
+}
+
 std::vector<std::string> get_input(const std::string& file_name) {
 	std::ifstream f;
     f.open(file_name);
@@ -85,13 +89,20 @@ std::vector<std::string> second_pass(std::map<std::string, int> table, std::map<
         }
         else if(table.count(commands[i]) == 1) {
             output.push_back(std::to_string(table[commands[i]]));
+        } 
+        else if(!is_const_num(commands[i])) {
+            output.push_back(commands[i]);
         }
     }
     return output;
 }
 
-void print_output(std::vector<std::string> output, const int &offset) {
-    std::cout << "MV-EXE" << std::endl << std::endl;
+void print_output(std::map<std::string, int>  labels, std::vector<std::string> output, const int &offset) {
+    // std::cout << "MV-EXE" << std::endl << std::endl;
+    for (auto it: labels) {
+        std::cout << it.first << " " << it.second << std::endl;
+    }
+    std::cout << "#end of labels table#" << std::endl;
 
 	int memory = output.size();
     int program_start = 100;
