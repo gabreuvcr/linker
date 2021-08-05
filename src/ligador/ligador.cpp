@@ -45,7 +45,7 @@ void update_table(const std::string& file_name, std::map<std::string, int>& labe
     }
 }
 
-bool is_const_num(std::string &str) {
+bool is_num(std::string &str) {
     return std::all_of(std::begin(str), std::end(str), ::isdigit) || str[0] == '-';
 }
 
@@ -55,9 +55,8 @@ void update_code(std::map<std::string, int> labels, std::vector<std::string>& co
 
     for (int i = 0; i < size; i++) {
         ILC++;
-        if (!is_const_num(commands[i])) {
+        if (!is_num(commands[i])) {
             commands[i] = std::to_string(labels[commands[i]] - ILC - 1);
         }
-
     }
 }
