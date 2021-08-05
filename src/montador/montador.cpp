@@ -102,7 +102,7 @@ void print_output(std::map<std::string, int>  labels, std::vector<std::string> o
     for (auto it: labels) {
         std::cout << it.first << " " << it.second << std::endl;
     }
-    std::cout << "#end of labels table#" << std::endl;
+    std::cout << "#endtable#" << std::endl;
 
 	int memory = output.size();
     int program_start = 100;
@@ -111,7 +111,7 @@ void print_output(std::map<std::string, int>  labels, std::vector<std::string> o
     std::cout << memory;
     std::cout << " " << program_start;
     std::cout << " " << stack_start;
-    std::cout << " " << entry_point << std::endl << std::endl;
+    std::cout << " " << entry_point << std::endl;
 	for (int i = 0; i < memory; i++) {
 		std::cout << output[i];
 		if (i != memory - 1) {
