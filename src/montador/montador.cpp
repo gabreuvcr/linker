@@ -5,7 +5,7 @@ void replace_tabs_to_spaces(std::string &in) {
 }
 
 bool is_const_num(std::string &str) {
-    return std::all_of(std::begin(str), std::end(str), ::isdigit);
+    return std::all_of(std::begin(str), std::end(str), ::isdigit) || str[0] == '-';
 }
 
 std::vector<std::string> get_input(const std::string& file_name) {
