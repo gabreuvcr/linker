@@ -1,0 +1,5 @@
+MB: COPY R2 R1
+    JUMP L
+    RET
+
+END

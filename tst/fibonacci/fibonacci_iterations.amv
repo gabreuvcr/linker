@@ -1,0 +1,13 @@
+iterations:
+    LOAD R3 counter                       ; carrega em R3 o valore do contador
+    STORE R2 greater                      ; guarda o maior valor encontrado (fib)
+    ADD R2 R1                             ; calcula o proximo fib
+    LOAD R1 one                        
+    ADD R3 R1                             ; incrementa o contador
+    STORE R3 counter
+    LOAD R1 greater
+    SUB R3 R0                             ; verifica se ja fez todas as iteracoes (sub = 0)
+    JN iterations                         ; se nao, retorna
+    JUMP exit_success                     ; se sim, encerra
+    
+END

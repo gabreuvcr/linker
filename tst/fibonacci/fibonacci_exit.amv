@@ -1,0 +1,9 @@
+exit_success:
+    LOAD R3 greater                       ; o maior valor e o fib
+    WRITE R3
+    HALT
+
+exit_error:
+    HALT
+
+END

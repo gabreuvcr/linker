@@ -1,0 +1,33 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; Cálculo do valor de Fibonacci
+; Entrada: Natural diferente de 0 N (via input)
+; Saída: Valor de Fibonacci (registrador X)
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; R0 armazena o valor da entrada
+; R3 (e em dado momento R1) sao registradores livres
+
+main: READ R1                         ; entrada N
+COPY R0 R1                            ; atualiza estado com a entrada
+
+JN exit_error                         ; encerra o programa se entrada negativa
+JZ exit_error                         ; encerra o programa se entrada = zero
+
+JUMP start
+
+start:
+LOAD R1 fib1                          ; carrega caso base 1
+LOAD R2 fib2                          ; carrega caso base 2
+LOAD R3 one                           
+STORE R3 counter                      ; contador comeca do 1
+SUB R3 R0                             ; verifica se cai no case base 1
+JN iterations                         ; se nao, comeca a iterar
+JUMP exit_success                     ; se sim, encerra o programa
+
+END

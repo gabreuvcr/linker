@@ -1,0 +1,16 @@
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ; Programa que imprime o maior numero entre dois informados  ;
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+main: READ R0              ; Salva primeiro numero do registrador 0
+READ R1              ; Salva segundo numero no registrador 1
+STORE R0 A           ; Faz "backup" do valor de R0 em A
+SUB R0 R1            ; Subtrai o segundo numero do primeiro
+LOAD R0 A            ; Recupera valor de R0
+JN MB                ; Caso seja negativo, R1 > R0
+COPY R2 R0           ; Caso contrario, R0 >=, entao salva valor do primeiro numero em R2
+JUMP L
+A: WORD 0
+END
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

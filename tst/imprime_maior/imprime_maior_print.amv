@@ -1,0 +1,7 @@
+L: WRITE R0          ; Imprime primeiro numero
+    WRITE R1             ; Imprime segundo numero
+    WRITE R2             ; Imprime maior numero
+    HALT
+    RET
+
+END

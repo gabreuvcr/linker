@@ -1,0 +1,6 @@
+fib1: WORD 0                          ; valor do caso base 1
+fib2: WORD 1                          ; valor do caso base 2
+one: WORD 1
+
+counter: WORD 0
+greater: WORD 0
